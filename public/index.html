@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BathRoots</title>
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- update the version number as needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.8.1/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.8.1/firebase-performance-compat.js"></script>
+    <script src="workinNineToFive.js"></script>
+    <link rel="stylesheet" href="/table.css">
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  </head>
+  <body>
+    <button id="allowNotificationsButton">Allow notifications</button>
+    
+
+    <table class="styled-table">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Shower/Bath</th>
+              <th>Time in</th>
+              <th>Checks</th>
+              <th>Time out</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="active-row">
+              <td><input id="guestNameInput"></td>
+              <td><div class="showerBathToggle">bath</div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Confirm</td>
+          </tr>
+          <!-- and so on... -->
+      </tbody>
+    </table>
+    <button id="addRow">Add row</button>
+  
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        try {
+          firebase.app();
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    </script>
+  </body>
+</html>
