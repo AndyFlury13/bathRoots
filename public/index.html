@@ -21,6 +21,8 @@
     <script defer src="/__/firebase/10.8.1/firebase-performance-compat.js"></script>
     <script src="workinNineToFive.js"></script>
     <link rel="stylesheet" href="/table.css">
+    <link rel="stylesheet" href="/style.css">
+
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
@@ -43,18 +45,18 @@
           </tr>
       </thead>
       <tbody>
-          <tr class="active-row">
-              <td><input id="guestNameInput"></td>
+          <tr>
+              <td class="guestNameCell"><input class="guestNameInput"></td>
               <td><div class="showerBathToggle">bath</div></td>
               <td></td>
               <td></td>
               <td></td>
-              <td>Confirm</td>
+              <td><div class="confirmBtn">confirm</div></td>
           </tr>
           <!-- and so on... -->
       </tbody>
     </table>
-    <button id="addRow">Add row</button>
+    <button class="addRowBtn">Add row</button>
   
 
     <script>
