@@ -22,7 +22,7 @@ async function run() {
 
       });
 
-      $(document).on('click', '.confirmBtn', (event) => {
+      $(document).on('click', '.startTimeBtn', (event) => {
         handleConfirm(event);
 
       });
@@ -31,14 +31,6 @@ async function run() {
         handleAddRow();
 
       });
-      
-
-      setTimeout(
-          () => {
-            registration.showNotification("Hello World", {
-              body: "My first notification on iOS",
-            })
-      }, 3000);
     
     }
   });
@@ -58,17 +50,21 @@ function toggleShowerBath(event) {
 }
 
 function handleConfirm(event) {
-  const confirmBtn = $(event.target);
-  const rowToConfirm = confirmBtn.parent().parent();
+  const startTimeBtn = $(event.target);
+  const rowToConfirm = startTimeBtn.parent().parent();
   const guestNameCell = rowToConfirm.children('.guestNameCell');
   const guestNameInput = guestNameCell.children('.guestNameInput');
-
-  if (confirmBtn.html() === "confirm") {
-    confirmBtn.html("edit");
-    guestNameCell.html(guestNameInput.val());
+  const timeInCell = rowToConfirm.children('.timeInCell');
+  const timeOutCell = rowToConfirm.children('.timeOutCell');
+  if (startTimeBtn.html() === "Start") {
+    startTimeBtn.html("Stop");
+    // guestNameCell.html(guestNameInput.val());
+    timeInCell.html(getHourMinute(new Date()));
   } else {
-    confirmBtn.html("confirm");
-    guestNameCell.html(`<input class="guestNameInput" value="${guestNameCell.html()}">`);
+    startTimeBtn.html("Start");
+    timeOutCell.html(getHourMinute(new Date()));
+    // guestNameCell.html(`<input class="guestNameInput" value="${guestNameCell.html()}">`);
+
   }
 }
 
@@ -77,12 +73,21 @@ function handleAddRow() {
     `<tr>
         <td class="guestNameCell"><input class="guestNameInput"></td>
         <td><div class="showerBathToggle">bath</div></td>
+        <td class="timeInCell"></td>
+        <td class="timeOutCell"></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td><div class="confirmBtn">confirm</div></td>
+        <td><div class="startTimeBtn">Start</div></td>
     </tr>`
   )
+}
+
+function getHourMinute(dateTime) {
+  const hours = dateTime.getHours();
+  let minutes = dateTime.getMinutes();
+  if (minutes < 10) {
+    minutes = '0' + minutes.toString();
+  }
+  return `${hours}:${minutes}`;
 }
 
 
