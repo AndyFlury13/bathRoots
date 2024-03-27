@@ -32,32 +32,47 @@
   <body>
     <button id="allowNotificationsButton">Allow notifications</button>
     
-
-    <table class="styled-table">
-      <thead>
-          <tr>
-              <th>Name</th>
-              <th>Shower/Bath</th>
-              <th>Time in</th>
-              <th>Checks</th>
-              <th>Time out</th>
-              <th>Timer</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td class="guestNameCell"><input class="guestNameInput"></td>
-              <td><div class="showerBathToggle">bath</div></td>
-              <td class="timeInCell"></td>
-              <td class="timeOutCell"></td>
-              <td></td>
-              <td><div class="startTimeBtn">Start</div></td>
-          </tr>
-          <!-- and so on... -->
-      </tbody>
-    </table>
-    <button class="addRowBtn">Add row</button>
-  
+    <div class="container">
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Shower/Bath</th>
+                <th>Number</th>
+                <th>Time in</th>
+                <th>Checks</th>
+                <th>Time out</th>
+                <th>Timer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="guestNameCell"><input class="guestNameInput"></td>
+                <td class="showerBathToggleCell">
+                  <select class="showerBathSelect">
+                    <option value="B">B</option>
+                    <option value="S">S</option>
+                  </select>
+                </td>
+                <td class="showerBathNumberCell">
+                  <select class="showerBathNumberSelect">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>  
+                </td>
+                <td></td>
+                <td class="timeInCell"></td>
+                <td class="timeOutCell"></td>
+                <td><div class="startTimeBtn" id="0">Start</div></td>
+            </tr>
+            <!-- and so on... -->
+        </tbody>
+      </table>
+      <button class="addRowBtn">Add row</button>
+    </div>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {

@@ -1,3 +1,7 @@
+.container {
+    display: none;
+}
+
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
